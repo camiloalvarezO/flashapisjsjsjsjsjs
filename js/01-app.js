@@ -1,37 +1,26 @@
-// Notificaciones nátivas
+const notificarmeBtn = document.querySelector('#notificar');
 
-const notificarBtn = document.querySelector('#notificar');
-
-notificarBtn.addEventListener('click', () => {
+notificarmeBtn.addEventListener('click', () =>{
     Notification
         .requestPermission()
-        .then( resultado => {
-            console.log('El resultado es ', resultado)
-         })
+        .then(resultado => {
+            console.log('mostar noti ',resultado);
+        }).catch((err) => {
+            console.log('mostar noti ',resultado);
+        });
+        
 })
 
-// const verNotificacionBtn = document.querySelector('#verNotificacion');
-// verNotificacionBtn.addEventListener('click', () => {
-//     if(Notification.permission == 'granted') {
-//         new Notification('Esta es la notificación');
-//     }
-// })
-
-
-// Ir mas alla con nuestra notificación...
-
-const verNotificacionBtn = document.querySelector('#verNotificacion');
-verNotificacionBtn.addEventListener('click', () => {
-    if(Notification.permission == 'granted') {
-        const notificacion = new Notification('Esta es la notificación', { 
-            icon: 'img/ccj.png',
-            body: 'Código con Juan, los mejores tutoriales'
+const mostrarNoti = document.querySelector('#verNotificacion');
+mostrarNoti.addEventListener('click', ()=> {
+    if(Notification.permission === 'granted'){
+        const noti = new Notification('Mondongo',{
+            icon: `https://images3.memedroid.com/images/UPLOADED101/5f71f5cf73c53.jpeg`
         });
-
-        // Ir al sitio web de juan
-        notificacion.onclick = function() {
-            window.open('https://www.codigoconjuan.com')
-        }
-
+        
+        noti.onclick= function(){
+            window.open('https://www.youtube.com/shorts/16uJ-jxcKHo');
+        } 
+        
     }
 })

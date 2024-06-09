@@ -1,17 +1,12 @@
-// ejecutar el sitio web en pantalla completa...
+const entrar = document.querySelector('#abrir-pantalla-completa',entrarPantallaCompleta);
+const salir = document.querySelector('#salir-pantalla-completa', salirPantallaCompleta);
 
-const abrirBtn = document.querySelector('#abrir-pantalla-completa');
-const salirBtn = document.querySelector('#salir-pantalla-completa');
+entrar.addEventListener('click',entrarPantallaCompleta);
+salir.addEventListener('click',salirPantallaCompleta);
 
-abrirBtn.addEventListener('click',  pantallaCompleta);
-salirBtn.addEventListener('click',  cerrarPantallaCompleta);
-
-
-
-function pantallaCompleta() {
+function entrarPantallaCompleta(){
     document.documentElement.requestFullscreen();
 }
-
-function cerrarPantallaCompleta() {
+function salirPantallaCompleta(){
     document.exitFullscreen();
 }
